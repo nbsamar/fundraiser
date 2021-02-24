@@ -1,4 +1,5 @@
 class User < ApplicationRecord
   has_many :campaigns
-  has_and_belongs_to_many :profiles
+  has_many :profile_users
+  has_many :profiles, through: :profile_users
 end
