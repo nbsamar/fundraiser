@@ -1,0 +1,27 @@
+<div class="container">
+  <h2 class="text-center">List of all Campaigns</h2>
+
+  <table class="table table-striped table-bordered">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Purpose</th>
+      <th>Amount to be raised</th>
+      <th>User who raised</th>
+      <th>Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @campaigns.each do |c| %>
+      <tr>
+        <td><%= link_to c.name, campaign_path(c) %></td>
+        <td><%= c.purpose %></td>
+        <td><%= c.amount %></td>
+        <% user = c.user %>
+        <td><%= link_to (user.name + ' - ' + (user.credibility_score).to_s), user_path(user) %></td>
+        <td><%= c.status.capitalize %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

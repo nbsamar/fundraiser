@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="card" style="margin: 0.5em 10em 10em 10em">
+    <h3 class="text-center">Create campaign</h3>
+    <hr>
+    <%= form_for @user do |u| %>
+      <div class="form-row">
+        <div class="form-group col-md-5" style="margin-left: 0.5em">
+          <%= u.label :User_name %>
+          <%= u.text_field :name %>
+        </div>
+        <div class="form-group col-md-5" style="margin-left: 0.5em">
+          <%= u.label :User_email %>
+          <%= u.text_field :email %>
+        </div>
+      </div>
+
+      <%= fields_for :campaign do |c| %>
+        <div class="form-row">
+          <div class="form-group col-md-5" style="margin-left: 0.5em">
+            <%= c.label :name_of_the_fundraiser_campaign %>
+            <%= c.text_field :name, placeholder: 'Enter Name', class: 'form-control', required: true %>
+          </div>
+          <div class="form-group col-md-10" style="margin-left: 0.5em">
+            <%= c.label :purpose %>
+            <%= c.text_area :purpose, placeholder: 'Enter Purpose', class: 'form-control', required: true %>
+          </div>
+          <div class="form-group col-md-3" style="margin-left: 0.5em">
+            <%= c.label :amount_to_be_raised %>
+            <%= c.number_field :amount, placeholder: 'Enter Amount', class: 'form-control', required: true %>
+          </div>
+        </div>
+      <% end %>
+      <%= u.submit 'Create Campaign', class: 'btn btn-success', style: 'margin: 0em 0 1em 0.5em' %>
+    <% end %>
+  </div>
+</div>
