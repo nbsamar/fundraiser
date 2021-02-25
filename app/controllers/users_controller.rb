@@ -8,5 +8,6 @@ class UsersController < ApplicationController
         .campaigns.create(name: params[:campaign][:name],
                           purpose: params[:campaign][:purpose],
                           amount: params[:campaign][:amount])
+    redirect_to root_path
   end
 end

@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="card" style="margin: 0.5em 10em 10em 10em">
+    <h3 class="text-center">Campaign Details:</h3>
+    <h4>Name: <%= @campaign.name %></h4>
+    <h5>Purpose: <%= @campaign.purpose %></h5>
+    <h5>Amount: <%= @campaign.amount %></h5>
+    <h5>Created by: <%= @user.name + ' who has Credibililty Score of ' + (@user.credibility_score).to_s %></h5>
+    <hr>
+    <h5>Change Status:</h5>
+    <%= form_for @campaign do |c| %>
+      <%= c.select(:status, options_for_select(%i[Drafted Approved Rejected], selected: c.object.status.capitalize)) %>
+      <%= c.submit 'Update Campaign', class: 'btn btn-success', data: { confirm: 'Are you sure?' } %>
+    <% end %>
+  </div>
+</div>
