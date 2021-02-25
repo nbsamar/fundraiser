@@ -15,7 +15,7 @@ class CampaignsController < ApplicationController
 
   def update
     Campaign.find(params[:id]).update(status: (params[:campaign][:status]).downcase)
-    return campaign_path(params[:id])
+    redirect_to campaign_path(params[:id])
   end
 
 end
