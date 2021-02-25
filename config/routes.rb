@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   resources :campaigns
   resources :users
   resources :profiles, only: [:show, :edit]
+  get 'under_review', to: 'campaigns#draft'
 end
